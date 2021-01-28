@@ -56,8 +56,6 @@ namespace Metoder
             #endregion
             #region Opg 8
             //RemoveNumbers();
-            //Console.WriteLine();
-            //ReRemoveNumbers();
             #endregion
             #region Opg 9
             //Console.WriteLine("Winning lotto Coupon");
@@ -201,27 +199,28 @@ namespace Metoder
         #region Opg 8
         static void RemoveNumbers()
         {
-            int[] listeB = new int[11];
-            for (int i = 0, even = 0; i < listeB.Length; i++, even += 2)
+            //2,4,5,8,10,11,14,16,17,19,20
+            List<int> listeB = new List<int>();
+            List<int> listeC = new List<int>();
+            for (int i = 1; i < 21; i++)
             {
-                listeB[3] = 17;
-                listeB[i] = even;
-                if (listeB[i] % 3 != 0)
-                {
-                    Console.WriteLine(listeB[i]);
-                }
+                listeB.Add(i);
             }
-        }
-        static void ReRemoveNumbers()
-        {
-            int[] listeB = new int[11];
-            for (int i = 0, even = 0; i < listeB.Length; i++, even += 2)
+            listeB[3] = 17;
+            for (int i = 1; i < listeB.Count; i++)
             {
-                listeB[i] = even;
                 if (listeB[i] % 3 == 0)
                 {
-                    Console.WriteLine(listeB[i]);
+                    listeB.RemoveAt(i);
                 }
+                Console.WriteLine(listeB[i]);
+            }
+            Console.WriteLine();
+            listeB.Reverse();
+            listeC = listeB;
+            for (int i = 1; i < listeC.Count; i++)
+            {
+                Console.WriteLine(listeC[i]);
             }
         }
         #endregion
@@ -274,9 +273,6 @@ namespace Metoder
                     break;
                 case 6:
                     Console.WriteLine("You won 320 kr!");
-                    break;
-                case 7:
-                    Console.WriteLine("You won 640 kr!");
                     break;
             }
         }
